@@ -7,7 +7,7 @@ const path = require("path");
 dotenv.config();
 const app = express();
 const PANTRY_ID = process.env.PANTRY_ID;
-const PANTRY_API_URL = `https://getpantry.cloud/apiv1/pantry/${PANTRY_ID}/basket`;
+const PANTRY_API_URL = `https://getpantry.cloud/apiv1/pantry/${PANTRY_ID}`;
 app.use(cors());
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
