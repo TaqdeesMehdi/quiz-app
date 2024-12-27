@@ -1,4 +1,4 @@
-const express = require("express");
+// const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -8,9 +8,10 @@ dotenv.config();
 const app = express();
 const PANTRY_ID = process.env.PANTRY_ID;
 const PANTRY_API_URL = `https://getpantry.cloud/apiv1/pantry/${PANTRY_ID}/basket`;
+
 app.use(cors());
 app.use(express.json());
-const PORT = process.env.PORT || 3000;
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -64,6 +65,5 @@ app.delete("/:basketName", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
+// Export the app as a serverless function
+module.exports = app;
